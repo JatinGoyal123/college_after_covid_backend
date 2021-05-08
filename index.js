@@ -2,9 +2,11 @@ import mongoose from 'mongoose';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import Users from './routes/users.js';
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/',Users);
 const MONGO_URI =
   'mongodb+srv://jatingoyal24:jatingoyal30694@cluster0.bmhzl.mongodb.net/college_after_covid';
 const PORT = 5000;

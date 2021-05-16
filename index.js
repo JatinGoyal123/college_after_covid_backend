@@ -8,12 +8,14 @@ import cors from "cors";
 dotenv.config({ path: "./config/config.env" });
 import Users from "./routes/users.js";
 import Arrival from "./routes/arrival.js";
+import Vaccination from "./routes/vaccination.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use("/users", Users);
 app.use("/arrival", Arrival);
+app.use("/vaccination", Vaccination);
 const MONGO_URI =
   "mongodb+srv://jatingoyal24:jatingoyal30694@cluster0.bmhzl.mongodb.net/college_after_covid";
 const PORT = 5000;

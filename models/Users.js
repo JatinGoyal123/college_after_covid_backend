@@ -49,6 +49,12 @@ UserSchema.virtual("arrival", {
   foreignField: "users",
   justOne: false,
 });
+UserSchema.virtual("vaccination", {
+  ref: "Vaccination",
+  localField: "_id",
+  foreignField: "users",
+  justOne: false,
+});
 
 const Users = mongoose.model("Users", UserSchema);
 export default Users;

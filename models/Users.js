@@ -43,6 +43,18 @@ UserSchema.methods.getSignedJwtToken = function () {
 UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+UserSchema.virtual("arrival", {
+  ref: "Arrival",
+  localField: "_id",
+  foreignField: "users",
+  justOne: false,
+});
+UserSchema.virtual("vaccination", {
+  ref: "Vaccination",
+  localField: "_id",
+  foreignField: "users",
+  justOne: false,
+});
 
 const Users = mongoose.model("Users", UserSchema);
 export default Users;
